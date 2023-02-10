@@ -46,6 +46,15 @@ class World:
         print(new_bait)
         return new_bait
 
+    def move_player(self):
+        position = self.player.next_head_pos()
+        if position == self.bait:
+            self.player.grow_to(position)
+            self.bait = self.new_bait()
+        else:
+            self.player.move()
+        self.isgame_over = self.player.collides_with_itself()
+
     def draw(self):
         objects = []
         objects.extend(self.player.draw())
