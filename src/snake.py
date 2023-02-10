@@ -1,39 +1,41 @@
 import numpy as np
 from position import Position
+import directions
 
 
 class Snake:
     def __init__(self, position):
         self.parts = []
         self.parts.append(SnakePart(position))
-        self._orientation = 'right'
+        self._orientation = directions.Right()
 
     @property
     def orientation(self):
         return self._orientation
 
     @orientation.setter
-    def orientation(self, orientation: str):
-        if orientation in ['left', 'right', 'up', 'down']:
+    def orientation(self, orientation):
+        if len(self.parts) < 2 or self.pos_in_direction(orientation) != self.parts[-2].position:
             self._orientation = orientation
-        else:
-            raise ValueError('Invalid snake orientation.')
 
     def move(self):
         print(self.head())
         self.move_to(self.next_head_pos())
 
-    def next_head_pos(self) -> Position:
-        if self.orientation == 'left':
+    def pos_in_direction(self, direction):
+        if isinstance(direction, directions.Left):
             return self.head().left()
-        elif self.orientation == 'right':
+        elif isinstance(direction, directions.Right):
             return self.head().right()
-        elif self.orientation == 'up':
+        elif isinstance(direction, directions.Up):
             return self.head().up()
-        elif self.orientation == 'down':
+        elif isinstance(direction, directions.Down):
             return self.head().down()
         else:
             raise ValueError('Invalid snake orientation.')
+
+    def next_head_pos(self) -> Position:
+        return self.pos_in_direction(self.orientation)
 
     def move_to(self, position):
         curr_position = position

@@ -3,17 +3,17 @@ import pygame.locals
 from movable import MovableRect
 import sys
 from world import World
-
+from directions import Right, Left, Up, Down
 
 def update(world: World, event) -> list:
     if event.key == pygame.K_LEFT or event.key == ord('a'):
-        world.player.orientation = 'left'
+        world.player.orientation = Left()
     if event.key == pygame.K_UP or event.key == ord('w'):
-        world.player.orientation = 'up'
+        world.player.orientation = Up()
     if event.key == pygame.K_DOWN or event.key == ord('s'):
-        world.player.orientation = 'down'
+        world.player.orientation = Down()
     if event.key == pygame.K_RIGHT or event.key == ord('d'):
-        world.player.orientation = 'right'
+        world.player.orientation = Right()
 
 
 width = 20
