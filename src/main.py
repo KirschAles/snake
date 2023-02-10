@@ -43,6 +43,8 @@ while not exiting:
             exiting = True
         if event.type == pygame.locals.KEYDOWN:
             to_draw = update(world, event)
+            if world.isgame_over:
+                exiting = True
     for drawing in to_draw:
         pygame.draw.rect(canvas, drawing.colour, pygame.Rect(drawing.x * block_size, drawing.y * block_size, block_size, block_size))
     pygame.display.update()
