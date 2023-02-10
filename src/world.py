@@ -17,6 +17,7 @@ class World:
 
         self.player = Snake(Position((0, 0)))
         self.bait = self.new_bait()
+        self.isgame_over = False
 
     def move_player_left(self):
         return self.move_player_to(self.player.head().left())
@@ -30,13 +31,13 @@ class World:
     def move_player_down(self):
         return self.move_player_to(self.player.head().down())
 
-    def move_player_to(self, position: Position):
+    def move_player_to(self, position: Position) -> bool:
         if position == self.bait:
             self.player.grow_to(position)
             self.bait = self.new_bait()
         else:
             self.player.move_to(position)
-        print(self.player.head())
+        self.isgame_over = self.player.collides_with_itself()
 
     def new_bait(self):
         new_bait = random_position(self.width, self.height)
