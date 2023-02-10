@@ -1,4 +1,5 @@
 import numpy as np
+from position import Position
 
 
 class Snake:
@@ -11,22 +12,45 @@ class Snake:
 
         # moves all body parts forward, last position is lost
         for part in reversed(self.parts):
-            temp_position = part.position()
-            part.change_position(curr_position)
+            temp_position = part.position
+            part.position = curr_position
             curr_position = temp_position
 
     def grow_to(self, position):
         self.parts.append(SnakePart(position))
-        
+
+    def head(self):
+        return self.parts[-1].position
+
+    def collides_with(self, position) -> bool:
+        for part in self.parts:
+            print(part.position)
+            if position == part.position:
+                return True
+        return False
+
+    def draw(self):
+        drawing = []
+        for part in self.parts:
+            drawing.append(part.draw())
+        return drawing
+
 
 class SnakePart:
-    def __init__(self, position: tuple):
-        self._x = position[0]
-        self._y = position[1]
+    colour = 'green'
 
-    def change_position(self, position: tuple):
-        self._x = position[0]
-        self._y = position[1]
+    def __init__(self, position: Position):
+        self._position = position
+        self._position.colour = self.colour
 
-    def position(self) -> tuple:
-        return self._x, self._y
+    @property
+    def position(self) -> Position:
+        return self._position
+
+    @position.setter
+    def position(self, position: Position):
+        position.colour = self.colour
+        self._position = position
+
+    def draw(self):
+        return self.position
