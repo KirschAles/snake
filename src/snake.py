@@ -19,6 +19,22 @@ class Snake:
         else:
             raise ValueError('Invalid snake orientation.')
 
+    def move(self):
+        print(self.head())
+        self.move_to(self.next_head_pos())
+
+    def next_head_pos(self) -> Position:
+        if self.orientation == 'left':
+            return self.head().left()
+        elif self.orientation == 'right':
+            return self.head().right()
+        elif self.orientation == 'up':
+            return self.head().up()
+        elif self.orientation == 'down':
+            return self.head().down()
+        else:
+            raise ValueError('Invalid snake orientation.')
+
     def move_to(self, position):
         curr_position = position
 
