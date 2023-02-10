@@ -29,6 +29,12 @@ class Snake:
                 return True
         return False
 
+    def collides_with_itself(self) -> bool:
+        for part in self.parts[:-1]:
+            if part.position == self.head():
+                return True
+        return False
+
     def draw(self):
         drawing = []
         for part in self.parts:
