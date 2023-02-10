@@ -6,6 +6,18 @@ class Snake:
     def __init__(self, position):
         self.parts = []
         self.parts.append(SnakePart(position))
+        self._orientation = 'right'
+
+    @property
+    def orientation(self):
+        return self._orientation
+
+    @orientation.setter
+    def orientation(self, orientation: str):
+        if orientation in ['left', 'right', 'up', 'down']:
+            self._orientation = orientation
+        else:
+            raise ValueError('Invalid snake orientation.')
 
     def move_to(self, position):
         curr_position = position
