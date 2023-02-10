@@ -19,7 +19,7 @@ def update(world: World, event) -> list:
 width = 20
 height = 20
 block_size = 15
-blocks_per_second = 3
+blocks_per_second = 5
 canvas_width = width * block_size
 canvas_height = height * block_size
 canvas_colour = (255, 255, 255)
