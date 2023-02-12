@@ -60,7 +60,7 @@ class Snake:
         return False
 
     def collides_with_itself(self) -> bool:
-        for part in self.parts[:-1]:
+        for part in self.parts[0:len(self.parts)-1]:
             if part.position == self.head():
                 return True
         return False
