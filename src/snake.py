@@ -10,18 +10,18 @@ class Snake:
         self._orientation = directions.Right()
 
     @property
-    def orientation(self):
+    def orientation(self) -> directions.Direction:
         return self._orientation
 
     @orientation.setter
-    def orientation(self, orientation):
+    def orientation(self, orientation) -> None:
         if len(self.parts) < 2 or self.pos_in_direction(orientation) != self.parts[-2].position:
             self._orientation = orientation
 
-    def move(self):
+    def move(self) -> None:
         self.move_to(self.next_head_pos())
 
-    def pos_in_direction(self, direction):
+    def pos_in_direction(self, direction) -> Position:
         if isinstance(direction, directions.Left):
             return self.head().left()
         elif isinstance(direction, directions.Right):
@@ -36,7 +36,7 @@ class Snake:
     def next_head_pos(self) -> Position:
         return self.pos_in_direction(self.orientation)
 
-    def move_to(self, position):
+    def move_to(self, position) -> None:
         curr_position = position
 
         # moves all body parts forward, last position is lost
@@ -45,10 +45,10 @@ class Snake:
             part.position = curr_position
             curr_position = temp_position
 
-    def grow_to(self, position):
+    def grow_to(self, position) -> None:
         self.parts.append(SnakePart(position))
 
-    def head(self):
+    def head(self) -> Position:
         return self.parts[-1].position
 
     def collides_with(self, position) -> bool:
@@ -63,7 +63,7 @@ class Snake:
                 return True
         return False
 
-    def draw(self):
+    def draw(self) -> list:
         drawing = []
         for part in self.parts:
             drawing.append(part.draw())
@@ -82,9 +82,9 @@ class SnakePart:
         return self._position
 
     @position.setter
-    def position(self, position: Position):
+    def position(self, position: Position) -> None:
         position.colour = self.colour
         self._position = position
 
-    def draw(self):
+    def draw(self) -> Position:
         return self.position
