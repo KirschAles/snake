@@ -29,7 +29,6 @@ def game_loop(canvas_height: int,
     canvas = pygame.display.set_mode((canvas_width, canvas_height))
     # game loop
     world = World(height, width)
-    to_draw = []
     time_elapsed = 0
     while not exiting:
         canvas.fill(canvas_colour)
