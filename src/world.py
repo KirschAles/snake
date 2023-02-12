@@ -44,7 +44,6 @@ class World:
         new_bait = random_position(self.width, self.height)
         while self.player.collides_with(new_bait):
             new_bait = random_position(self.width, self.height)
-        print(new_bait)
         return new_bait
 
     def move_player(self):
