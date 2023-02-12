@@ -1,8 +1,6 @@
 import pygame
 import pygame.locals
 import pygame_gui
-from movable import MovableRect
-import sys
 from world import World
 from directions import Right, Left, Up, Down
 
