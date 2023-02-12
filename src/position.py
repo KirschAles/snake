@@ -20,23 +20,23 @@ class Position:
         return Position((self._x, self._y + 1))
 
     @property
-    def x(self):
+    def x(self) -> int:
         return self._x
 
     @property
-    def y(self):
+    def y(self) -> int:
         return self._y
 
     @property
-    def colour(self):
+    def colour(self) -> str:
         return self._colour
 
     @colour.setter
-    def colour(self, colour: str):
+    def colour(self, colour: str) -> None:
         self._colour = colour
 
     def __eq__(self, other) -> bool:
         return self.x == other.x and self.y == other.y
 
-    def __str__(self):
+    def __str__(self) -> str:
         return str(self.x) + ', ' + str(self.y) + '  ' + self.colour
