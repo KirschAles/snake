@@ -27,7 +27,7 @@ canvas_colour = (255, 255, 255)
 pygame.init()
 
 exiting = False
-pygame.display.set_caption('My Game')
+pygame.display.set_caption('Snake')
 FPS = pygame.time.Clock()
 FPS.tick(60)
 
