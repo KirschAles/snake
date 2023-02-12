@@ -1,4 +1,3 @@
-import numpy as np
 from position import Position
 import directions
 
