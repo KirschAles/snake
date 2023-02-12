@@ -46,12 +46,13 @@ def game_loop(canvas_height: int,
                 exiting = True
             if event.type == pygame.locals.KEYDOWN:
                 update(world, event)
-            if world.isgame_over:
-                exiting = True
+
         to_draw = world.draw()
         for drawing in to_draw:
             pygame.draw.rect(canvas, drawing.colour, pygame.Rect(drawing.x * block_size, drawing.y * block_size, block_size, block_size))
         pygame.display.update()
+        if world.isgame_over:
+            exiting = True
 
 
 width = 20
