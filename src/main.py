@@ -21,8 +21,8 @@ background.fill(pygame.Color('#000000'))
 manager = pygame_gui.UIManager((canvas_width, canvas_height))
 
 single_player = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((300, 200), (200, 50)),
-                                            text='Single Player',
-                                            manager=manager)
+                                             text='Single Player',
+                                             manager=manager)
 exit_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((300, 260), (200, 50)),
                                            text='Exit',
                                            manager=manager)
