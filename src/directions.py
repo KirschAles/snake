@@ -1,32 +1,27 @@
-class Vertical:
+class Direction:
     def __init__(self):
         pass
 
 
-class Horizontal:
-    def __init__(self):
-        pass
-
-
-class Left(Horizontal):
+class Left(Direction):
     def __init__(self):
         super().__init__()
         pass
 
 
-class Right(Horizontal):
+class Right(Direction):
     def __init__(self):
         super().__init__()
         pass
 
 
-class Up(Vertical):
+class Up(Direction):
     def __init__(self):
         super().__init__()
         pass
 
 
-class Down(Vertical):
+class Down(Direction):
     def __init__(self):
         super().__init__()
         pass
