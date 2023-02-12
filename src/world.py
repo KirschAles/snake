@@ -54,7 +54,7 @@ class World:
             self.bait = self.new_bait()
         else:
             self.player.move()
-        self.isgame_over = self.player.collides_with_itself()
+        self.isgame_over = self.player.collides_with_itself() or self.isgame_over
 
     def draw(self):
         objects = []
