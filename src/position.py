@@ -1,7 +1,10 @@
 class Position:
+    max_height = 1024
+    max_width = 1024
+
     def __init__(self, position: tuple, colour: str = 'red'):
-        self._x = position[0]
-        self._y = position[1]
+        self._x = position[0] % self.max_width
+        self._y = position[1] % self.max_height
         self._colour = colour
 
     def left(self):

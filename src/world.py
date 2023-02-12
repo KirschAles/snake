@@ -14,7 +14,8 @@ class World:
     def __init__(self, height: int, width: int):
         self.height = height
         self.width = width
-
+        Position.max_width = width
+        Position.max_height = height
         self.player = Snake(Position((0, 0)))
         self.bait = self.new_bait()
         self.isgame_over = False
