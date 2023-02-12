@@ -29,7 +29,7 @@ def game_loop(canvas_height: int,
     FPS = pygame.time.Clock()
     FPS.tick(60)
 
-    canvas = pygame.display.set_mode((canvas_height, canvas_width))
+    canvas = pygame.display.set_mode((canvas_width, canvas_height))
     # game loop
     world = World(height, width)
     to_draw = []
