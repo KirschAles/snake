@@ -19,7 +19,6 @@ class Snake:
             self._orientation = orientation
 
     def move(self):
-        print(self.head())
         self.move_to(self.next_head_pos())
 
     def pos_in_direction(self, direction):
@@ -54,7 +53,6 @@ class Snake:
 
     def collides_with(self, position) -> bool:
         for part in self.parts:
-            print(part.position)
             if position == part.position:
                 return True
         return False
