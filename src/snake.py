@@ -4,7 +4,7 @@ import directions
 
 
 class Snake:
-    def __init__(self, position):
+    def __init__(self, position: Position):
         self.parts = []
         self.parts.append(SnakePart(position))
         self._orientation = directions.Right()
@@ -14,14 +14,14 @@ class Snake:
         return self._orientation
 
     @orientation.setter
-    def orientation(self, orientation) -> None:
+    def orientation(self, orientation: directions.Direction) -> None:
         if len(self.parts) < 2 or self.pos_in_direction(orientation) != self.parts[-2].position:
             self._orientation = orientation
 
     def move(self) -> None:
         self.move_to(self.next_head_pos())
 
-    def pos_in_direction(self, direction) -> Position:
+    def pos_in_direction(self, direction: directions.Direction) -> Position:
         if isinstance(direction, directions.Left):
             return self.head().left()
         elif isinstance(direction, directions.Right):
@@ -36,7 +36,7 @@ class Snake:
     def next_head_pos(self) -> Position:
         return self.pos_in_direction(self.orientation)
 
-    def move_to(self, position) -> None:
+    def move_to(self, position: Position) -> None:
         curr_position = position
 
         # moves all body parts forward, last position is lost
@@ -45,13 +45,13 @@ class Snake:
             part.position = curr_position
             curr_position = temp_position
 
-    def grow_to(self, position) -> None:
+    def grow_to(self, position: Position) -> None:
         self.parts.append(SnakePart(position))
 
     def head(self) -> Position:
         return self.parts[-1].position
 
-    def collides_with(self, position) -> bool:
+    def collides_with(self, position: Position) -> bool:
         for part in self.parts:
             if position == part.position:
                 return True
