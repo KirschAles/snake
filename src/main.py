@@ -56,7 +56,7 @@ def game_loop(canvas_height: int,
 
 
 width = 20
-height = 20
+height = 15
 block_size = 40
 blocks_per_second = 5
 canvas_width = width * block_size
