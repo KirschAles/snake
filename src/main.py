@@ -61,7 +61,7 @@ block_size = 40
 blocks_per_second = 5
 canvas_width = width * block_size
 canvas_height = height * block_size
-canvas_colour = (255, 255, 255)
+canvas_colour = (200, 200, 200)
 
 pygame.init()
 
